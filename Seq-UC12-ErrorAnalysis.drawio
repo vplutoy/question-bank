@@ -1,0 +1,169 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UC-12 错误知识点分析" id="seq-uc12">
+    <mxGraphModel dx="1400" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="h_teacher" value="教师" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="80" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_fe" value="Vue" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;size=20;" vertex="1" parent="1">
+          <mxGeometry x="170" y="30" width="70" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_ctrl" value="Student Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="300" y="30" width="100" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_svc" value="Student Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;size=20;" vertex="1" parent="1">
+          <mxGeometry x="460" y="30" width="90" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_impl" value="Student ServiceImpl" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;size=20;" vertex="1" parent="1">
+          <mxGeometry x="610" y="30" width="100" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_esa" value="ExamStudent AnswerMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="780" y="30" width="120" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_qm" value="Question Mapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="960" y="30" width="90" height="900" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_db" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#f5f5f5;strokeColor=#999;size=20;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="30" width="80" height="900" as="geometry"/>
+        </mxCell>
+
+        <!-- 1. Teacher navigates -->
+        <mxCell id="m1" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_teacher" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="130" y="80"/><mxPoint x="205" y="80"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m1l" value="1.查看学生学情分析" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m2" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_fe" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="205" y="115"/><mxPoint x="350" y="115"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m2l" value="2.GET /api/students/{studentNo}/error-analysis" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m3" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_ctrl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="150"/><mxPoint x="505" y="150"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m3l" value="3.getErrorAnalysis(studentNo)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m4" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_svc" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="505" y="185"/><mxPoint x="660" y="185"/></Array></mxGeometry>
+        </mxCell>
+
+        <!-- Step A: Query all answers -->
+        <mxCell id="m5" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_esa">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="660" y="225"/><mxPoint x="840" y="225"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m5l" value="5.selectList(wrapper.eq(student_no))" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m6" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_esa" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="840" y="260"/><mxPoint x="1150" y="260"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m6l" value="SELECT * FROM exam_student_answer WHERE student_no=?" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_esa">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1150" y="295"/><mxPoint x="840" y="295"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r1l" value="List&lt;ExamStudentAnswer&gt;" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Loop over answers -->
+        <mxCell id="loop_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#9673a6;dashed=1;dashPattern=5 3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="320" width="1140" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="loop_lbl" value="[loop: 遍历每条答题记录]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="322" width="250" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- For each answer: get question via questionMapper -->
+        <mxCell id="m7" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_qm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="660" y="355"/><mxPoint x="1005" y="355"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m7l" value="selectById(questionId) - 获取knowledge_points" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m7">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m8" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_qm" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1005" y="390"/><mxPoint x="1150" y="390"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m8l" value="SELECT * FROM question WHERE id=?" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m8">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_loop1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_qm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1150" y="425"/><mxPoint x="1005" y="425"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_loop2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_qm" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1005" y="455"/><mxPoint x="660" y="455"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_loop2l" value="Question (含knowledge_points字段)" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_loop2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Process inside Impl -->
+        <mxCell id="proc_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="475" width="300" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="proc_lbl" value="拆分 knowledge_points; 比较 finalScore vs questionScore; 累加Map" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="665" y="482" width="290" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- End loop -->
+        <mxCell id="post_loop" value="[计算 errorRate = errorCount / totalCount, 降序排列]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="520" width="350" height="18" as="geometry"/>
+        </mxCell>
+
+        <!-- Return -->
+        <mxCell id="r_f1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_impl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="660" y="570"/><mxPoint x="505" y="570"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f1l" value="List&lt;ErrorKnowledgePointVO&gt;" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_svc" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="505" y="610"/><mxPoint x="350" y="610"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f3" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_ctrl" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="350" y="650"/><mxPoint x="205" y="650"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f3l" value="JSON: [{kp, errorCount, totalCount, errorRate}, ...]" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f4" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_fe" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="205" y="690"/><mxPoint x="130" y="690"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f4l" value="ECharts柱状图+表格" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Notes -->
+        <mxCell id="note1" value="* 跳过条件: final_score为null (未评分) 或 knowledge_points为空" style="text;html=1;strokeColor=#cc0000;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=9;fontColor=#cc0000;spacingLeft=6;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="740" width="450" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="note2" value="* 降级策略: 直接解析 question.knowledge_points 逗号分隔字段, 不依赖 question_knowledge_point 关联表" style="text;html=1;strokeColor=#cc0000;fillColor=#fff0f0;align=left;verticalAlign=middle;fontSize=9;fontColor=#cc0000;spacingLeft=6;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="770" width="600" height="24" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="title" value="UC-12: 错误知识点分析 — 时序图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="5" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

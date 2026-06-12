@@ -83,6 +83,20 @@
               <span>考试列表</span>
             </el-menu-item>
           </el-sub-menu>
+          <el-sub-menu index="student">
+            <template #title>
+              <el-icon><User /></el-icon>
+              <span>学生管理</span>
+            </template>
+            <el-menu-item index="/students/classes">
+              <el-icon><OfficeBuilding /></el-icon>
+              <span>班级管理</span>
+            </el-menu-item>
+            <el-menu-item index="/students">
+              <el-icon><List /></el-icon>
+              <span>学生列表</span>
+            </el-menu-item>
+          </el-sub-menu>
         </el-menu>
       </el-aside>
       <el-main class="main">
@@ -114,6 +128,9 @@ const activeMenu = computed(() => {
   if (p.startsWith('/papers')) return '/papers'
   if (p.startsWith('/exam/rooms')) return '/exam/rooms'
   if (p.startsWith('/exam')) return '/exam/list'
+  if (p.startsWith('/students/analysis')) return '/students'
+  if (p.startsWith('/students/classes')) return '/students/classes'
+  if (p.startsWith('/students')) return '/students'
   return '/questions'
 })
 

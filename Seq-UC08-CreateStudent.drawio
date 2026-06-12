@@ -1,0 +1,164 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UC-08 创建新学生" id="seq-uc08">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="h_teacher" value="教师" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="80" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_fe" value="Vue Frontend" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;size=20;" vertex="1" parent="1">
+          <mxGeometry x="190" y="30" width="100" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_ctrl" value="Student Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="360" y="30" width="100" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_svc" value="Student Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;size=20;" vertex="1" parent="1">
+          <mxGeometry x="530" y="30" width="100" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_impl" value="Student ServiceImpl" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;size=20;" vertex="1" parent="1">
+          <mxGeometry x="700" y="30" width="100" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_mapper" value="Student Mapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="870" y="30" width="100" height="700" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_db" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#f5f5f5;strokeColor=#999;size=20;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="30" width="80" height="700" as="geometry"/>
+        </mxCell>
+
+        <!-- Messages -->
+        <mxCell id="m1" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_teacher" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="130" y="80"/><mxPoint x="240" y="80"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m1l" value="1.点击[新建学生]" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_fe" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="240" y="100"/><mxPoint x="130" y="100"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m2l" value="弹出表单(班级下拉)" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m3" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_teacher" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="130" y="130"/><mxPoint x="240" y="130"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m3l" value="2.填写{姓名,学号,班级,院系}提交" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m4" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_fe" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="240" y="165"/><mxPoint x="410" y="165"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m4l" value="3.POST /api/students (StudentDTO)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m5" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_ctrl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="200"/><mxPoint x="580" y="200"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m5l" value="4.create(dto)  @Valid校验" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m6" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_svc" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="580" y="235"/><mxPoint x="750" y="235"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m6l" value="5.create(dto)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Uniqueness check: query by student_no -->
+        <mxCell id="m7" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="750" y="275"/><mxPoint x="920" y="275"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m7l" value="6.selectOne(wrapper.eq(student_no))" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m7">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m8" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_mapper" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="920" y="310"/><mxPoint x="1080" y="310"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m8l" value="7.SELECT * FROM student WHERE student_no=?" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m8">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r0" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1080" y="345"/><mxPoint x="920" y="345"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r0l" value="null (不存在)" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r0">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- alt check: if null -> continue insert -->
+        <mxCell id="alt_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;strokeWidth=1;dashed=1;dashPattern=5 3;" vertex="1" parent="1">
+          <mxGeometry x="40" y="365" width="1080" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="alt_label" value="[学号不存在，继续]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="45" y="367" width="200" height="20" as="geometry"/>
+        </mxCell>
+
+        <!-- Insert -->
+        <mxCell id="m9" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="750" y="390"/><mxPoint x="920" y="390"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m9l" value="8.insert(entity)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m9">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m10" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_mapper" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="920" y="420"/><mxPoint x="1080" y="420"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m10l" value="9.INSERT INTO student (...)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m10">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Return path -->
+        <mxCell id="r1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1080" y="450"/><mxPoint x="920" y="450"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_mapper" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="920" y="480"/><mxPoint x="750" y="480"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r3" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_impl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="750" y="510"/><mxPoint x="580" y="510"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r3l" value="StudentVO (含className)" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r4" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_svc" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="580" y="540"/><mxPoint x="410" y="540"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r5" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_ctrl" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="410" y="570"/><mxPoint x="240" y="570"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r5l" value="JSON: StudentVO" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r6" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_fe" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="240" y="600"/><mxPoint x="130" y="600"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r6l" value="关闭弹窗,列表刷新" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Note about error path -->
+        <mxCell id="note" value="* 异常路径: 若步骤7查到记录 (student_no已存在)   → 抛出异常, ControllerAdvice 返回 HTTP 400" style="text;html=1;strokeColor=#cc0000;fillColor=#fff0f0;align=left;verticalAlign=top;fontSize=9;fontColor=#cc0000;spacingLeft=6;spacingTop=4;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="640" width="360" height="40" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="title" value="UC-08: 创建新学生 — 时序图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="5" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

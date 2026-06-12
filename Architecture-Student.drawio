@@ -1,0 +1,229 @@
+<mxfile host="Electron">
+  <diagram name="Architecture-学生管理子系统" id="arch-student">
+    <mxGraphModel dx="1488" dy="885" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" value="Student Management Subsystem Architecture (学生管理子系统架构图)" vertex="1">
+          <mxGeometry height="30" width="700" x="300" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="100" width="800" x="80" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#336600;spacingLeft=8;spacingTop=4;" value="Vue 3 Frontend (Presentation Layer)" vertex="1">
+          <mxGeometry height="20" width="300" x="90" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="60" width="140" x="110" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_at" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentClassManage.vue&#xa;(班级管理页)" vertex="1">
+          <mxGeometry height="44" width="140" x="110" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="60" width="140" x="270" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_bt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentManage.vue&#xa;(学生管理页)" vertex="1">
+          <mxGeometry height="44" width="140" x="270" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="60" width="140" x="430" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_ct" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentAnalysis.vue&#xa;(学情分析页)" vertex="1">
+          <mxGeometry height="44" width="140" x="430" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e0;strokeColor=#82b366;dashed=1;" value="" vertex="1">
+          <mxGeometry height="60" width="160" x="600" y="82" as="geometry" />
+        </mxCell>
+        <mxCell id="l1_clientt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="api/student.js&#xa;(Axios HTTP Client)" vertex="1">
+          <mxGeometry height="44" width="160" x="600" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#666666;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="155" as="sourcePoint" />
+            <mxPoint x="480" y="175" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a1l" connectable="0" parent="a1" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666;labelBackgroundColor=#fff;" value="HTTP JSON&#xa;/api/students/*&#xa;/api/student-classes/*" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-50" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="90" width="800" x="80" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#003366;spacingLeft=8;spacingTop=4;" value="Controller Layer (控制层) — @RestController" vertex="1">
+          <mxGeometry height="20" width="320" x="90" y="183" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="50" width="280" x="110" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_at" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentClassController&#xa;GET/POST/PUT/DELETE /api/student-classes" vertex="1">
+          <mxGeometry height="40" width="280" x="110" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="50" width="340" x="420" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="l2_bt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentController&#xa;CRUD + Analysis endpoints (/api/students)" vertex="1">
+          <mxGeometry height="40" width="340" x="420" y="215" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#666666;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="270" as="sourcePoint" />
+            <mxPoint x="480" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a2l" connectable="0" parent="a2" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666;labelBackgroundColor=#fff;" value="method call" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-40" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="180" width="800" x="80" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#806600;spacingLeft=8;spacingTop=4;" value="Service Layer (业务逻辑层) — Interface + Implementation" vertex="1">
+          <mxGeometry height="20" width="450" x="90" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_if_a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;dashed=1;" value="" vertex="1">
+          <mxGeometry height="65" width="240" x="110" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_if_at" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=9;spacingLeft=6;spacingTop=4;" value="&lt;&lt;interface&gt;&gt; StudentClassService&#xa;+ listAll()  + getById()&#xa;+ create()  + update()  + delete()" vertex="1">
+          <mxGeometry height="60" width="240" x="110" y="328" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_if_b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;dashed=1;" value="" vertex="1">
+          <mxGeometry height="80" width="260" x="380" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_if_bt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=9;spacingLeft=6;spacingTop=4;" value="&lt;&lt;interface&gt;&gt; StudentService&#xa;+ pageStudents()  + getById()&#xa;+ create()  + update()  + delete()&#xa;+ getScoreTrend()  + getErrorAnalysis()&#xa;+ getClassAnalysis()" vertex="1">
+          <mxGeometry height="75" width="260" x="380" y="328" as="geometry" />
+        </mxCell>
+        <mxCell id="impl_a" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=1;strokeColor=#d79b00;dashed=1;endFill=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="390" as="sourcePoint" />
+            <mxPoint x="230" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="impl_al" connectable="0" parent="impl_a" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#d79b00;labelBackgroundColor=#fff2cc;" value="implements" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="impl_b" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=1;strokeColor=#d79b00;dashed=1;endFill=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="405" as="sourcePoint" />
+            <mxPoint x="510" y="425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3_impl_a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="" vertex="1">
+          <mxGeometry height="50" width="240" x="110" y="412" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_impl_at" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentClassServiceImpl&#xa;(班级 CRUD 实现)" vertex="1">
+          <mxGeometry height="40" width="240" x="110" y="417" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_impl_b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="" vertex="1">
+          <mxGeometry height="40" width="260" x="380" y="427" as="geometry" />
+        </mxCell>
+        <mxCell id="l3_impl_bt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="StudentServiceImpl (CRUD + Analysis 算法)" vertex="1">
+          <mxGeometry height="30" width="260" x="380" y="432" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#666666;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="475" as="sourcePoint" />
+            <mxPoint x="480" y="498" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a3l" connectable="0" parent="a3" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666;labelBackgroundColor=#fff;" value="method call" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-40" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="120" width="800" x="80" y="503" as="geometry" />
+        </mxCell>
+        <mxCell id="l4_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#603366;spacingLeft=8;spacingTop=4;" value="Mapper Layer (数据访问层) — MyBatis-Plus BaseMapper" vertex="1">
+          <mxGeometry height="20" width="450" x="90" y="506" as="geometry" />
+        </mxCell>
+        <mxCell id="l4_own" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;" value="" vertex="1">
+          <mxGeometry height="55" width="180" x="110" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="l4_ownt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#333333;" value="StudentClassMapper&#xa;StudentMapper&#xa;(READ-WRITE / 读写)" vertex="1">
+          <mxGeometry height="45" width="180" x="110" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="l4_ro" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#9673a6;dashed=1;" value="" vertex="1">
+          <mxGeometry height="80" width="430" x="330" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="l4_rot" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#999999;" value="ExamStudentResultMapper | ExamStudentAnswerMapper | ExamMapper&#xa;ExamPaperMapper | ExamPaperQuestionMapper | QuestionMapper&#xa;(READ-ONLY / 只读 — 跨子系统复用)" vertex="1">
+          <mxGeometry height="60" width="430" x="330" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#666666;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="623" as="sourcePoint" />
+            <mxPoint x="480" y="648" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a4l" connectable="0" parent="a4" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666;labelBackgroundColor=#fff;" value="JDBC / MyBatis-Plus" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-50" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l5_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="100" width="800" x="80" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#666666;spacingLeft=8;spacingTop=4;" value="Data Model Layer (数据模型层) — Entity / DTO / VO" vertex="1">
+          <mxGeometry height="20" width="420" x="90" y="655" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="55" width="160" x="110" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_at" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="Entity (Table)&#xa;StudentClass, Student" vertex="1">
+          <mxGeometry height="45" width="160" x="110" y="687" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;" value="" vertex="1">
+          <mxGeometry height="55" width="160" x="290" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_bt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="DTO (Input)&#xa;StudentDTO, StudentClassDTO" vertex="1">
+          <mxGeometry height="45" width="160" x="290" y="687" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="55" width="160" x="470" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_ct" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="VO (Output)&#xa;StudentVO, StudentClassVO" vertex="1">
+          <mxGeometry height="45" width="160" x="470" y="687" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_d" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;" value="" vertex="1">
+          <mxGeometry height="55" width="170" x="650" y="682" as="geometry" />
+        </mxCell>
+        <mxCell id="l5_dt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;" value="VO (Analysis)&#xa;ScoreTrendVO, ErrorKPVO, AnalysisVO" vertex="1">
+          <mxGeometry height="45" width="170" x="650" y="687" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" edge="1" parent="1" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#666666;endFill=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="752" as="sourcePoint" />
+            <mxPoint x="480" y="778" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a5l" connectable="0" parent="a5" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=8;fontColor=#666;labelBackgroundColor=#fff;" value="JDBC" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-20" y="6" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l6_bg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3e3e3;strokeColor=#666666;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="85" width="800" x="80" y="783" as="geometry" />
+        </mxCell>
+        <mxCell id="l6_lbl" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=11;fontStyle=1;fontColor=#333333;spacingLeft=8;spacingTop=4;" value="MySQL 8.0 Database (数据库层)" vertex="1">
+          <mxGeometry height="20" width="280" x="90" y="786" as="geometry" />
+        </mxCell>
+        <mxCell id="l6_own" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5f5d0;strokeColor=#4a9c3f;" value="" vertex="1">
+          <mxGeometry height="45" width="200" x="110" y="812" as="geometry" />
+        </mxCell>
+        <mxCell id="l6_ownt" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontStyle=1;" value="student_class (READ-WRITE)&#xa;student (READ-WRITE)" vertex="1">
+          <mxGeometry height="36" width="200" x="110" y="816" as="geometry" />
+        </mxCell>
+        <mxCell id="l6_ro" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;" value="" vertex="1">
+          <mxGeometry height="45" width="420" x="340" y="812" as="geometry" />
+        </mxCell>
+        <mxCell id="l6_rot" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#999999;" value="exam | exam_paper | exam_paper_question | exam_student_result&#xa;| exam_student_answer | question (READ-ONLY)" vertex="1">
+          <mxGeometry height="36" width="420" x="340" y="816" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

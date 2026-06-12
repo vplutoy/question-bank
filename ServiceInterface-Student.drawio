@@ -1,0 +1,250 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ServiceLayer" id="svc-layer">
+    <mxGraphModel dx="1400" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="950">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="Service Layer - Student Management Subsystem (接口与实现)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="8" width="650" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- StudentClassService - Interface (left) -->
+        <!-- ============================================================ -->
+        <mxCell id="if1_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="55" width="390" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b656;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="42" y="57" width="386" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_name" value="  interface  StudentClassService" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="42" y="57" width="386" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_div1" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="42" y="83" width="386" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_attr_lbl" value="Attributes: (none - pure interface)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999999;fontStyle=2;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="88" width="386" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_div2" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="42" y="112" width="386" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_m1" value="  + listAll() : List~SCVO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="116" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_m2" value="  + getById(id: Long) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="142" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_m3" value="  + create(dto: StudentClassDTO) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="168" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_m4" value="  + update(id: Long, dto: StudentClassDTO) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="194" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="if1_m5" value="  + delete(id: Long) : void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="220" width="386" height="24" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- StudentClassServiceImpl - Implementation (right of its interface) -->
+        <!-- ============================================================ -->
+        <mxCell id="impl1_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="310" width="390" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="42" y="312" width="386" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_name" value="  class  StudentClassServiceImpl" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="42" y="312" width="386" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_div1" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="42" y="338" width="386" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_a1" value="  - classMapper: StudentClassMapper  (R/W)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="342" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_a2" value="  - studentMapper: StudentMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="368" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_div2" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="42" y="396" width="386" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_m1" value="  + listAll() : List~SCVO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="400" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_m2" value="  + getById(id: Long) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="426" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_m3" value="  + create(dto: StudentClassDTO) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="452" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_m4" value="  + update(id: Long, dto: StudentClassDTO) : StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="478" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_m5" value="  + delete(id: Long) : void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="42" y="504" width="386" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl1_priv1" value="  - buildVO(sc) : StudentClassVO  (private)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;fontColor=#888888;" vertex="1" parent="1">
+          <mxGeometry x="42" y="530" width="386" height="24" as="geometry"/>
+        </mxCell>
+
+        <!-- implements arrow 1 -->
+        <mxCell id="arr1" value="" style="endArrow=block;html=1;strokeWidth=1.5;strokeColor=#666;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="235" y="275" as="sourcePoint"/>
+            <mxPoint x="235" y="310" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr1_l" value="implements" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#666;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="arr1">
+          <mxGeometry x="-0.05" y="1" relative="1" as="geometry"><mxPoint x="25" y="0" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- StudentService - Interface (right column top) -->
+        <!-- ============================================================ -->
+        <mxCell id="if2_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="55" width="480" height="370" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b656;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="502" y="57" width="476" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_name" value="  interface  StudentService" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="502" y="57" width="476" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_div1" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="502" y="83" width="476" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_attr_lbl" value="Attributes: (none - pure interface)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999;fontStyle=2;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="88" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_div2" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="502" y="112" width="476" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_lbl1" value="  -- CRUD --" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#888;fontStyle=2;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="116" width="476" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m1" value="  + pageStudents(page,size: Integer, classId: Long, keyword: String) : Page~SVO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="138" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m2" value="  + getById(id: Long) : StudentVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="162" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m3" value="  + getByStudentNo(studentNo: String) : StudentVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="186" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m4" value="  + create(dto: StudentDTO) : StudentVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="210" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m5" value="  + update(id: Long, dto: StudentDTO) : StudentVO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="234" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m6" value="  + delete(id: Long) : void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="258" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_lbl2" value="  -- Analysis --" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#888;fontStyle=2;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="284" width="476" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m7" value="  + getScoreTrend(studentNo: String) : List~ScoreTrendVO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="306" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m8" value="  + getErrorAnalysis(studentNo: String) : List~ErrorKP-VO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="330" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="if2_m9" value="  + getClassAnalysis(classId: Long) : List~AnalysisVO~" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="354" width="476" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- StudentServiceImpl - Implementation (right column bottom) -->
+        <!-- ============================================================ -->
+        <mxCell id="impl2_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="500" y="465" width="480" height="340" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="502" y="467" width="476" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_name" value="  class  StudentServiceImpl" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=12;fontStyle=1;fontColor=#ffffff;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="502" y="467" width="476" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_div1" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="502" y="493" width="476" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a1" value="  - studentMapper: StudentMapper  (R/W)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="497" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a2" value="  - classMapper: StudentClassMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="521" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a3" value="  - resultMapper: ExamStudentResultMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="545" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a4" value="  - answerMapper: ExamStudentAnswerMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="569" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a5" value="  - examMapper: ExamMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="593" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a6" value="  - examPaperMapper: ExamPaperMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="617" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a7" value="  - questionMapper: QuestionMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="641" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_a8" value="  - paperQuestionMapper: ExamPaperQuestionMapper  (R)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="665" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_div2" value="" style="line;strokeWidth=1;fillColor=none;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="502" y="691" width="476" height="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_m1" value="  (same public methods as StudentService interface)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#999;fontStyle=2;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="695" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_p1" value="  - requireStudent(id: Long) : Student  (private)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#888;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="720" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_p2" value="  - buildStudentVO(s: Student) : StudentVO  (private)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#888;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="744" width="476" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="impl2_p3" value="  - getQuestionMaxScore(examId, questionId: Long) : BigDecimal  (private)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#888;spacingLeft=10;" vertex="1" parent="1">
+          <mxGeometry x="502" y="768" width="476" height="22" as="geometry"/>
+        </mxCell>
+
+        <!-- implements arrow 2 -->
+        <mxCell id="arr2" value="" style="endArrow=block;html=1;strokeWidth=1.5;strokeColor=#666;dashed=1;endFill=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="740" y="425" as="sourcePoint"/>
+            <mxPoint x="740" y="465" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arr2_l" value="implements" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;fontColor=#666;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="arr2">
+          <mxGeometry x="-0.05" y="1" relative="1" as="geometry"><mxPoint x="25" y="0" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="lg_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#999;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="820" width="480" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_if" value="" style="rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="55" y="832" width="60" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_ift" value="= Interface" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="122" y="830" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_im" value="" style="rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="832" width="60" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_imt" value="= Implementation" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="277" y="830" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_rw" value="(R/W) = Read-Write" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#333;" vertex="1" parent="1">
+          <mxGeometry x="410" y="830" width="120" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_ro" value="(R) = Read-Only" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#999;" vertex="1" parent="1">
+          <mxGeometry x="410" y="848" width="120" height="16" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

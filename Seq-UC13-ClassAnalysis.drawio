@@ -1,0 +1,158 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UC-13 班级学情汇总" id="seq-uc13">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="h_teacher" value="教师" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="80" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_fe" value="Vue" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;size=20;" vertex="1" parent="1">
+          <mxGeometry x="180" y="30" width="70" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_ctrl" value="Student Controller" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="320" y="30" width="100" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_svc" value="Student Service" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;size=20;" vertex="1" parent="1">
+          <mxGeometry x="490" y="30" width="90" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_impl" value="Student ServiceImpl" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;size=20;" vertex="1" parent="1">
+          <mxGeometry x="640" y="30" width="100" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_sm" value="Student Mapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="800" y="30" width="90" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_esrm" value="ExamStudent ResultMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="950" y="30" width="120" height="750" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_db" value="Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#f5f5f5;strokeColor=#999;size=20;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="30" width="80" height="750" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m1" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_teacher" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="130" y="80"/><mxPoint x="215" y="80"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m1l" value="1.选择班级,点击[班级分析]" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m2" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_fe" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="215" y="115"/><mxPoint x="370" y="115"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m2l" value="2.GET /api/students/analysis?classId=X" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m3" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_ctrl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="150"/><mxPoint x="535" y="150"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m3l" value="3.getClassAnalysis(classId)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m4" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_svc" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="535" y="185"/><mxPoint x="690" y="185"/></Array></mxGeometry>
+        </mxCell>
+
+        <!-- Phase 1: Get students by class -->
+        <mxCell id="phase1" value="[Phase 1: 获取班级学生列表]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="210" width="250" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m5" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_sm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="690" y="230"/><mxPoint x="845" y="230"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m5l" value="selectList(wrapper.eq(class_id,classId))" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m6" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_sm" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="845" y="265"/><mxPoint x="1170" y="265"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m6l" value="SELECT * FROM student WHERE class_id=?" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_p1a" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_sm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1170" y="300"/><mxPoint x="845" y="300"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_p1b" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_sm" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="845" y="335"/><mxPoint x="690" y="335"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_p1bl" value="List&lt;Student&gt;" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_p1b">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Phase 2: Get all exam results for these students -->
+        <mxCell id="phase2" value="[Phase 2: 查询考试成绩, 按student_no分组]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#d6b656;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="360" width="300" height="18" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="m7" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_impl" target="h_esrm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="690" y="385"/><mxPoint x="1010" y="385"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m7l" value="selectList(wrapper.in(student_no, list))" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m7">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="m8" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;" edge="1" parent="1" source="h_esrm" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1010" y="420"/><mxPoint x="1170" y="420"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m8l" value="SELECT * FROM exam_student_result WHERE student_no IN (?)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="m8">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_p2a" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_db" target="h_esrm">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1170" y="455"/><mxPoint x="1010" y="455"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_p2b" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_esrm" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1010" y="490"/><mxPoint x="690" y="490"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_p2bl" value="List&lt;ExamStudentResult&gt;" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_p2b">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Phase 3: Calculate -->
+        <mxCell id="phase3_box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="510" width="450" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="phase3_lbl" value="[Phase 3: 按student_no分组计算]   totalExamsTaken / averageScore / highestScore / lowestScore" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=9;fontColor=#d6b656;fontStyle=1;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="645" y="514" width="440" height="36" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="r_f1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_impl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="690" y="590"/><mxPoint x="535" y="590"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f1l" value="List&lt;StudentAnalysisVO&gt;" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_svc" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="535" y="630"/><mxPoint x="370" y="630"/></Array></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f3" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_ctrl" target="h_fe">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="370" y="670"/><mxPoint x="215" y="670"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f3l" value="JSON: [{学号,姓名,班级,考试次数,平均分,最高分,最低分}]" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r_f4" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;" edge="1" parent="1" source="h_fe" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="215" y="710"/><mxPoint x="130" y="710"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r_f4l" value="渲染汇总表格" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#fff;" vertex="1" connectable="0" parent="r_f4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="title" value="UC-13: 班级学情汇总 — 时序图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="5" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

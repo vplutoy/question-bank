@@ -1,0 +1,181 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║         学生管理子系统 — 架构图 (Spring Boot Layered Architecture)            ║
+║                    Student Management Subsystem Architecture                 ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │                         Vue 3 前端层 (Presentation)                   │
+    │  ┌──────────────────┐ ┌──────────────────┐ ┌──────────────────────┐ │
+    │  │StudentClassManage│ │  StudentManage   │ │  StudentAnalysis     │ │
+    │  │    .vue          │ │     .vue         │ │     .vue             │ │
+    │  │  (班级管理页)     │ │  (学生管理页)     │ │  (学情分析页)         │ │
+    │  └────────┬─────────┘ └────────┬─────────┘ └──────────┬───────────┘ │
+    │           │                   │                       │             │
+    │           │    ┌──────────────┴──────────────────────┘             │
+    │           │    │  api/student.js  (Axios HTTP Client)              │
+    │           │    └──────────────────────────────────┘                │
+    └───────────┼────┼───────────────────────────────────────────────────┘
+                │    │         HTTP (JSON)  /api/students/*
+                │    │         HTTP (JSON)  /api/student-classes/*
+                ▼    ▼
+    ┌─────────────────────────────────────────────────────────────────────┐
+    │                     Spring Boot 后端 (Business Logic)                │
+    │                                                                     │
+    │  ┌────────────────────────────────────────────────────────────┐     │
+    │  │              Controller Layer  (控制层)                     │     │
+    │  │  ┌─────────────────────┐  ┌─────────────────────────────┐  │     │
+    │  │  │StudentClassController│  │    StudentController        │  │     │
+    │  │  │ @RestController      │  │    @RestController          │  │     │
+    │  │  │ /api/student-classes │  │    /api/students            │  │     │
+    │  │  └──────────┬──────────┘  └────────────┬────────────────┘  │     │
+    │  └─────────────┼──────────────────────────┼───────────────────┘     │
+    │                │                          │                         │
+    │  ┌─────────────▼──────────────────────────▼───────────────────┐     │
+    │  │              Service Layer  (业务逻辑层)                     │     │
+    │  │  ┌─────────────────────────┐  ┌─────────────────────────┐  │     │
+    │  │  │<<interface>>            │  │<<interface>>            │  │     │
+    │  │  │ StudentClassService     │  │ StudentService          │  │     │
+    │  │  │ + listAll()             │  │ + pageStudents(...)     │  │     │
+    │  │  │ + getById()             │  │ + getById()             │  │     │
+    │  │  │ + create(dto)           │  │ + create(dto)           │  │     │
+    │  │  │ + update(id,dto)        │  │ + update(id,dto)        │  │     │
+    │  │  │ + delete(id)            │  │ + delete(id)            │  │     │
+    │  │  └───────────┬─────────────┘  │ + getScoreTrend(sno)    │  │     │
+    │  │              │                │ + getErrorAnalysis(sno) │  │     │
+    │  │              │                │ + getClassAnalysis(cid) │  │     │
+    │  │              │                └───────────┬─────────────┘  │     │
+    │  │       implements ↓                  implements ↓           │     │
+    │  │  ┌───────────────┐              ┌─────────────────┐        │     │
+    │  │  │StudentClass   │              │  Student        │        │     │
+    │  │  │ServiceImpl    │              │  ServiceImpl    │        │     │
+    │  │  │ (CRUD)        │              │  (CRUD+Analysis)│        │     │
+    │  │  └───────┬───────┘              └────────┬────────┘        │     │
+    │  └──────────┼───────────────────────────────┼─────────────────┘     │
+    │             │                               │                       │
+    │  ┌──────────▼───────────────────────────────▼─────────────────┐     │
+    │  │              Mapper Layer  (数据访问层 — MyBatis-Plus)       │     │
+    │  │  ┌────────────────┐  ┌──────────────┐  ┌──────────────┐   │     │
+    │  │  │StudentClass    │  │  Student     │  │ ExamStudent  │   │     │
+    │  │  │Mapper          │  │  Mapper      │  │ ResultMapper │   │     │
+    │  │  │extends         │  │  extends     │  │ (read-only)  │   │     │
+    │  │  │BaseMapper<T>   │  │  BaseMapper  │  │              │   │     │
+    │  │  └───────┬────────┘  └──────┬───────┘  └──────┬───────┘   │     │
+    │  │          │                  │                  │           │     │
+    │  │   ┌──────┴──────────┬───────┴──────────┬───────┴───────┐  │     │
+    │  │   │ ExamStudent     │  ExamMapper      │ QuestionMapper│  │     │
+    │  │   │ AnswerMapper    │  (read-only)     │ (read-only)   │  │     │
+    │  │   │ (read-only)     │                  │               │  │     │
+    │  │   └─────────────────┘┴─────────────────┴───────────────┘  │     │
+    │  └───────────────────────────────────────────────────────────┘     │
+    │                                                                     │
+    │  ┌───────────────────────────────────────────────────────────┐     │
+    │  │              Data Model Layer (数据模型层)                  │     │
+    │  │  ┌──────────┐ ┌────────┐ ┌──────────────┐ ┌───────────┐ │     │
+    │  │  │ Entity   │ │ DTO    │ │ VO           │ │ VO        │ │     │
+    │  │  │ (Table)  │ │(Input) │ │ (Output)     │ │(Analysis) │ │     │
+    │  │  ├──────────┤ ├────────┤ ├──────────────┤ ├───────────┤ │     │
+    │  │  │Student   │ │Student │ │StudentVO     │ │ScoreTrend │ │     │
+    │  │  │Class     │ │DTO     │ │StudentClassVO│ │VO         │ │     │
+    │  │  │Student   │ │Student │ │              │ │ErrorKP    │ │     │
+    │  │  │          │ │ClassDTO│ │              │ │VO         │ │     │
+    │  │  └──────────┘ └────────┘ └──────────────┘ │Student    │ │     │
+    │  │                                             │AnalysisVO │ │     │
+    │  │                                             └───────────┘ │     │
+    │  └───────────────────────────────────────────┘     │           │
+    └──────────────────────────────┬──────────────────────────────────┘
+                                   │  JDBC / MyBatis-Plus
+                                   ▼
+    ┌─────────────────────────────────────────────────────────────────┐
+    │                     MySQL 8.0 数据库层                            │
+    │  ┌────────────┐ ┌─────────┐ ┌──────────────────┐ ┌────────────┐│
+    │  │student_class│ │student  │ │exam_student      │ │exam_student││
+    │  │ (读写)      │ │(读写)   │ │_result (只读)    │ │_answer(只) ││
+    │  └────────────┘ └─────────┘ └──────────────────┘ └────────────┘│
+    │  ┌──────────┐ ┌────────────┐ ┌──────────────────┐ ┌──────────┐ │
+    │  │exam      │ │exam_paper  │ │exam_paper        │ │question  │ │
+    │  │(只读)    │ │(只读)      │ │_question (只读)   │ │(只读)    │ │
+    │  └──────────┘ └────────────┘ └──────────────────┘ └──────────┘ │
+    └─────────────────────────────────────────────────────────────────┘
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                              架构说明                                        ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║  【分层架构 — 5 层模型】                                                      ║
+║                                                                              ║
+║                  ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                各层类文件结构 (Package Diagram)                               ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  ┌─ frontend/src/ ───────────────────────────────────────────────────────┐
+  │  样例7-1: Vue 层文件结构                                               │
+  │                                                                        │
+  │  api/                                                                  │
+  │    student.js              -- Axios 封装, /api/students/*              │
+  │  views/student/                                                        │
+  │    StudentClassManage.vue  -- 班级 CRUD 表格 + 弹窗                     │
+  │    StudentManage.vue       -- 学生分页列表 + 筛选                       │
+  │    StudentAnalysis.vue     -- ECharts 图表 (折线/柱状/表格)            │
+  │  router/index.js           -- 追加 3 条学生管理路由                     │
+  │  components/AppLayout.vue  -- 追加 "学生管理" 侧边栏菜单                │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌─ backend/.../controller/ ──────────────────────────────────────────────┐
+  │  样例7-2: Controller 层文件结构                                         │
+  │                                                                        │
+  │  StudentClassController.java  -- /api/student-classes                  │
+  │    GET list() / GET getById(id) / POST create(dto)                     │
+  │    PUT update(id,dto) / DELETE delete(id)                               │
+  │  StudentController.java       -- /api/students                         │
+  │    GET page(...) / GET getById(id) / POST create(dto)                   │
+  │    PUT update(id,dto) / DELETE delete(id)                               │
+  │    GET classAnalysis(classId)                                           │
+  │    GET scoreTrend(studentNo)  /  GET errorAnalysis(studentNo)           │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌─ backend/.../service/ ─────────────────────────────────────────────────┐
+  │  样例7-3: Service 层文件结构 (接口+实现)                                  │
+  │                                                                        │
+  │  service/                                                              │
+  │    StudentClassService.java        -- 接口: 5个方法                     │
+  │    StudentService.java             -- 接口: 9个方法 (CRUD+Analysis)    │
+  │    impl/                                                               │
+  │      StudentClassServiceImpl.java  -- 实现: 班级 CRUD                   │
+  │      StudentServiceImpl.java       -- 实现: CRUD + 学情分析算法          │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌─ backend/.../mapper/ ──────────────────────────────────────────────────┐
+  │  样例7-4: Mapper 层文件结构 (DAO层)                                     │
+  │                                                                        │
+  │  StudentClassMapper.java         -- extends BaseMapper<StudentClass>   │
+  │  StudentMapper.java              -- extends BaseMapper<Student>        │
+  │  ExamStudentResultMapper.java    -- 只读 (跨子系统复用)                  │
+  │  ExamStudentAnswerMapper.java    -- 只读 (跨子系统复用)                  │
+  │  ExamMapper.java                 -- 只读 (跨子系统复用)                  │
+  │  ExamPaperMapper.java            -- 只读 (跨子系统复用)                  │
+  │  ExamPaperQuestionMapper.java    -- 只读 (跨子系统复用)                  │
+  │  QuestionMapper.java             -- 只读 (跨子系统复用)                  │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌─ backend/.../{entity,dto}/ ────────────────────────────────────────────┐
+  │  数据模型层文件结构                                                      │
+  │                                                                        │
+  │  entity/                                                               │
+  │    StudentClass.java             -- @TableName("student_class")         │
+  │    Student.java                  -- @TableName("student")               │
+  │  dto/                                                                  │
+  │    StudentDTO.java               -- 输入校验 (@NotBlank)                 │
+  │    StudentClassDTO.java          -- 输入校验                             │
+  │    StudentVO.java                -- 输出 (含 className)                  │
+  │    StudentClassVO.java           -- 输出 (含 studentCount)               │
+  │    ScoreTrendVO.java             -- 成绩趋势数据点                        │
+  │    ErrorKnowledgePointVO.java    -- 知识点错误统计                        │
+  │    StudentAnalysisVO.java        -- 班级学情汇总                          │
+  └────────────────────────────────────────────────────────────────────────┘

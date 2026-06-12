@@ -1,0 +1,151 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="UC-03 创建新班级" id="seq-uc03">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="700" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Lifeline headers (y=30) -->
+        <mxCell id="h_teacher" value="Teacher (Actor)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="90" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_frontend" value="Vue Frontend" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#d5e8d4;strokeColor=#82b366;size=20;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="100" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_ctrl" value="StudentClassController" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;size=20;" vertex="1" parent="1">
+          <mxGeometry x="370" y="30" width="110" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_svc" value="StudentClassService" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;size=20;" vertex="1" parent="1">
+          <mxGeometry x="550" y="30" width="110" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_impl" value="StudentClassServiceImpl" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#ffe6cc;strokeColor=#d79b00;size=20;" vertex="1" parent="1">
+          <mxGeometry x="730" y="30" width="110" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_mapper" value="StudentClassMapper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#e1d5e7;strokeColor=#9673a6;size=20;" vertex="1" parent="1">
+          <mxGeometry x="910" y="30" width="110" height="600" as="geometry"/>
+        </mxCell>
+        <mxCell id="h_db" value="Database (MySQL)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fontSize=10;fontStyle=1;fillColor=#f5f5f5;strokeColor=#999;size=20;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="30" width="90" height="600" as="geometry"/>
+        </mxCell>
+
+        <!-- Activation & Messages -->
+        <!-- 1. Teacher clicks "New Class" -->
+        <mxCell id="m1" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_teacher" target="h_frontend">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="150" y="80"/><mxPoint x="250" y="80"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m1l" value="1.点击[新建班级]" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 1b. Frontend shows form dialog -->
+        <mxCell id="m1b" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;fontSize=10;" edge="1" parent="1" source="h_frontend" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="250" y="95"/><mxPoint x="150" y="95"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m1bl" value="弹出空白表单" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m1b">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 2. Teacher fills form, submits -->
+        <mxCell id="m2" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_teacher" target="h_frontend">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="150" y="120"/><mxPoint x="250" y="120"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m2l" value="2.填写信息并提交" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 3. POST /api/student-classes {className,department,description} -->
+        <mxCell id="m3" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_frontend" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="250" y="150"/><mxPoint x="425" y="150"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m3l" value="3.POST /api/student-classes (StudentClassDTO)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 4. @Valid validate -->
+        <mxCell id="m4" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_ctrl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="425" y="185"/><mxPoint x="605" y="185"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m4l" value="4.create(dto)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 5. Service delegates to impl -->
+        <mxCell id="m5" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_svc" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="605" y="220"/><mxPoint x="785" y="220"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m5l" value="5.create(dto)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 6. DTO -> Entity conversion, call Mapper -->
+        <mxCell id="m6" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_impl" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="785" y="255"/><mxPoint x="965" y="255"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m6l" value="6.insert(entity)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 7. SQL INSERT INTO student_class -->
+        <mxCell id="m7" style="html=1;verticalAlign=bottom;endArrow=block;strokeWidth=1.5;fontSize=10;" edge="1" parent="1" source="h_mapper" target="h_db">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="965" y="290"/><mxPoint x="1135" y="290"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="m7l" value="7.INSERT INTO student_class (...)" style="edgeLabel;html=1;align=left;verticalAlign=middle;fontSize=9;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="m7">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- ===== RETURN PATH ===== -->
+
+        <!-- 8. DB -> Mapper: generated id -->
+        <mxCell id="r1" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_db" target="h_mapper">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1135" y="330"/><mxPoint x="965" y="330"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r1l" value="返回自增 id" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 9. Mapper -> Impl: entity -->
+        <mxCell id="r2" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_mapper" target="h_impl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="965" y="360"/><mxPoint x="785" y="360"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r2l" value="StudentClass entity" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 10. Impl -> Service: VO -->
+        <mxCell id="r3" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_impl" target="h_svc">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="785" y="390"/><mxPoint x="605" y="390"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r3l" value="StudentClassVO" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 11. Service -> Ctrl: VO -->
+        <mxCell id="r4" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_svc" target="h_ctrl">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="605" y="420"/><mxPoint x="425" y="420"/></Array></mxGeometry>
+        </mxCell>
+
+        <!-- 12. Ctrl -> Frontend: JSON -->
+        <mxCell id="r5" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_ctrl" target="h_frontend">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="425" y="450"/><mxPoint x="250" y="450"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r5l" value="JSON: StudentClassVO" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- 13. Frontend -> Teacher: refresh + toast -->
+        <mxCell id="r6" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;strokeColor=#999;strokeWidth=1;fontSize=10;" edge="1" parent="1" source="h_frontend" target="h_teacher">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="250" y="480"/><mxPoint x="150" y="480"/></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="r6l" value="关闭弹窗,刷新列表" style="edgeLabel;html=1;align=right;verticalAlign=middle;fontSize=9;fontColor=#999;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="10" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="title" value="UC-03: 创建新班级 — 时序图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="5" width="400" height="24" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,474 @@
+<mxfile host="app.diagrams.net" modified="2026-06-12T00:00:00.000Z" agent="claude" version="24.0.0" type="device">
+  <diagram name="UML Class - Student Subsystem" id="class-student">
+    <mxGraphModel dx="1600" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!--
+          UML Class Diagram — Student Management Subsystem
+          Layers (TB): Controller → Service Interface → Service Impl → Mapper → Entity → DTO/VO
+          Color coding: Controller=#dae8fc, ServiceIface=#fff2cc, ServiceImpl=#ffe6cc,
+                        Mapper=#e1d5e7, Entity=#d5e8d4, DTO/VO=#f5f5f5
+        -->
+
+        <!-- ============================================================ -->
+        <!-- ROW 0 — Layer Headers -->
+        <!-- ============================================================ -->
+        <mxCell id="lbl_ctrl" value="Controller Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="160" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl_svc_if" value="Service Interface Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="330" y="20" width="200" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl_svc_impl" value="Service Impl Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="610" y="20" width="180" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl_mapper" value="Mapper Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="940" y="20" width="150" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl_entity" value="Entity / DTO-VO Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=14;fontStyle=1;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="20" width="200" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 1 — CONTROLLER LAYER (y=60) -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClassController -->
+        <mxCell id="ctrl_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="210" height="176" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="42" y="62" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_scc_t" value="StudentClassController" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="42" y="62" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_scc_a" value="+ GET /api/student-classes&#xa;+ GET /api/student-classes/{id}&#xa;+ POST /api/student-classes&#xa;+ PUT /api/student-classes/{id}&#xa;+ DELETE /api/student-classes/{id}" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="42" y="90" width="206" height="146" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentController -->
+        <mxCell id="ctrl_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="210" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="42" y="262" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_sc_t" value="StudentController" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="42" y="262" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ctrl_sc_a" value="- CRUD -&#xa;+ GET /api/students&#xa;+ GET /api/students/{id}&#xa;+ POST /api/students&#xa;+ PUT /api/students/{id}&#xa;+ DELETE /api/students/{id}&#xa;- Analysis -&#xa;+ GET /api/students/analysis&#xa;+ GET /.../score-trend&#xa;+ GET /.../error-analysis" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="42" y="290" width="206" height="190" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 2 — SERVICE INTERFACE LAYER (y=60) -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClassService (interface) -->
+        <mxCell id="svci_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="220" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b656;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322" y="62" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_scc_t" value="<<interface>>&#xa;StudentClassService" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="322" y="62" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_scc_a" value="+ listAll(): List&lt;StudentClassVO&gt;&#xa;+ getById(Long): StudentClassVO&#xa;+ create(StudentClassDTO): StudentClassVO&#xa;+ update(Long, StudentClassDTO): StudentClassVO&#xa;+ delete(Long): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="322" y="90" width="216" height="116" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentService (interface) -->
+        <mxCell id="svci_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="230" width="220" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d6b656;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322" y="232" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_sc_t" value="<<interface>>&#xa;StudentService" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="322" y="232" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svci_sc_a" value="- CRUD -&#xa;+ pageStudents(p,sz,cId,kw): Page&lt;VO&gt;&#xa;+ getById(Long): StudentVO&#xa;+ getByStudentNo(String): StudentVO&#xa;+ create(StudentDTO): StudentVO&#xa;+ update(Long, StudentDTO): StudentVO&#xa;+ delete(Long): void&#xa;- Analysis -&#xa;+ getScoreTrend(String): List&lt;ScoreTrendVO&gt;&#xa;+ getErrorAnalysis(String): List&lt;ErrorKP&gt;&#xa;+ getClassAnalysis(Long): List&lt;AnalysisVO&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="322" y="260" width="216" height="190" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 3 — SERVICE IMPL LAYER (y=60) -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClassServiceImpl -->
+        <mxCell id="svc_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="600" y="60" width="220" height="146" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="602" y="62" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_scc_t" value="StudentClassServiceImpl" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="602" y="62" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_scc_a" value="+ listAll(): List&lt;StudentClassVO&gt;&#xa;+ getById(Long): StudentClassVO&#xa;+ create(StudentClassDTO): StudentClassVO&#xa;+ update(Long, StudentClassDTO): StudentClassVO&#xa;+ delete(Long): void" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="602" y="90" width="216" height="116" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentServiceImpl -->
+        <mxCell id="svc_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="600" y="230" width="220" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="602" y="232" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_sc_t" value="StudentServiceImpl" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="602" y="232" width="216" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="svc_sc_a" value="- CRUD -&#xa;+ pageStudents(p,sz,cId,kw): Page&lt;VO&gt;&#xa;+ getById(Long): StudentVO&#xa;+ getByStudentNo(String): StudentVO&#xa;+ create(StudentDTO): StudentVO&#xa;+ update(Long, StudentDTO): StudentVO&#xa;+ delete(Long): void&#xa;- Analysis -&#xa;+ getScoreTrend(String): List&lt;ScoreTrendVO&gt;&#xa;+ getErrorAnalysis(String): List&lt;ErrorKP&gt;&#xa;+ getClassAnalysis(Long): List&lt;AnalysisVO&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="602" y="260" width="216" height="190" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 4 — MAPPER LAYER (y=60) -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClassMapper -->
+        <mxCell id="mpr_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="890" y="60" width="200" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="892" y="62" width="196" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_scc_t" value="<<interface>>&#xa;StudentClassMapper" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="892" y="62" width="196" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_scc_a" value="extends BaseMapper&lt;StudentClass&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="892" y="90" width="196" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentMapper -->
+        <mxCell id="mpr_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="890" y="150" width="200" height="66" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="892" y="152" width="196" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_sc_t" value="<<interface>>&#xa;StudentMapper" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="892" y="152" width="196" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_sc_a" value="extends BaseMapper&lt;Student&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="892" y="180" width="196" height="36" as="geometry"/>
+        </mxCell>
+
+        <!-- BaseMapper (external) -->
+        <mxCell id="mpr_base_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="890" y="330" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_base_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="892" y="332" width="196" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_base_t" value="<<interface>> BaseMapper&lt;T&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="892" y="332" width="196" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="mpr_base_a" value="(MyBatis-Plus)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="892" y="352" width="196" height="28" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 5 — ENTITY LAYER (y=60) -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClass -->
+        <mxCell id="ent_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="60" width="210" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="62" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_scc_t" value="StudentClass" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="62" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_scc_a" value="- id: Long&#xa;- className: String&#xa;- department: String&#xa;- description: String&#xa;- createTime: LocalDateTime" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="90" width="206" height="96" as="geometry"/>
+        </mxCell>
+
+        <!-- Student -->
+        <mxCell id="ent_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="210" width="210" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="212" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_sc_t" value="Student" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="212" width="206" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="ent_sc_a" value="- id: Long&#xa;- name: String&#xa;- studentNo: String&#xa;- classId: Long&#xa;- department: String&#xa;- createTime: LocalDateTime" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="240" width="206" height="96" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- ROW 6 — DTO/VO LAYER -->
+        <!-- ============================================================ -->
+
+        <!-- StudentClassDTO -->
+        <mxCell id="dto_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d79b00;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="50" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="52" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_scc_t" value="StudentClassDTO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="52" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_scc_a" value="- className: String&#xa;- department: String&#xa;- description: String" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="76" width="186" height="64" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentClassVO -->
+        <mxCell id="vo_scc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="155" width="190" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_scc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="157" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_scc_t" value="StudentClassVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="157" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_scc_a" value="- id: Long&#xa;- className: String&#xa;- department: String&#xa;- description: String&#xa;- createTime: LocalDateTime&#xa;- studentCount: Integer" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="181" width="186" height="84" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentDTO -->
+        <mxCell id="dto_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#d79b00;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="290" width="190" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="292" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_sc_t" value="StudentDTO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="292" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="dto_sc_a" value="- name: String @NotBlank&#xa;- studentNo: String @NotBlank&#xa;- classId: Long&#xa;- department: String" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="316" width="186" height="64" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentVO -->
+        <mxCell id="vo_sc_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#82b366;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="400" width="190" height="126" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sc_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="402" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sc_t" value="StudentVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="402" width="186" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sc_a" value="- id: Long&#xa;- name: String&#xa;- studentNo: String&#xa;- classId: Long&#xa;- className: String&#xa;- department: String&#xa;- createTime: LocalDateTime" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1372" y="426" width="186" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- ScoreTrendVO -->
+        <mxCell id="vo_st_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="370" width="200" height="96" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_st_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="372" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_st_t" value="ScoreTrendVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="372" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_st_a" value="- examId: Long&#xa;- examName: String&#xa;- examTime: LocalDateTime&#xa;- totalScore: BigDecimal&#xa;- paperTotalScore: BigDecimal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="396" width="196" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ErrorKnowledgePointVO -->
+        <mxCell id="vo_ek_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="480" width="200" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_ek_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="482" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_ek_t" value="ErrorKnowledgePointVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="482" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_ek_a" value="- knowledgePoint: String&#xa;- errorCount: Long&#xa;- totalCount: Long&#xa;- errorRate: BigDecimal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="506" width="196" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- StudentAnalysisVO -->
+        <mxCell id="vo_sa_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="575" width="200" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sa_hdr" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6c8ebf;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="577" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sa_t" value="StudentAnalysisVO" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;fontColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="577" width="196" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="vo_sa_a" value="- studentNo: String&#xa;- studentName: String&#xa;- className: String&#xa;- department: String&#xa;- totalExamsTaken: Long&#xa;- averageScore: BigDecimal&#xa;- highestScore: BigDecimal&#xa;- lowestScore: BigDecimal" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=10;spacingLeft=6;spacingTop=4;" vertex="1" parent="1">
+          <mxGeometry x="1142" y="601" width="196" height="94" as="geometry"/>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- RELATIONSHIPS -->
+        <!-- ============================================================ -->
+
+        <!-- Controller --> Service (dependency: uses) -->
+        <mxCell id="r1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="ctrl_scc_bg" target="svci_scc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r1t" value="<<uses>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r1">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="ctrl_sc_bg" target="svci_sc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r2t" value="<<uses>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r2">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Service Impl --> Service Interface (implements) -->
+        <mxCell id="r3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.3;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="svci_scc_bg" target="svc_scc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r3t" value="<<implements>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r3">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="svci_sc_bg" target="svc_sc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r4t" value="<<implements>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r4">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Service Impl --> Mapper (dependency: uses) -->
+        <mxCell id="r5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="svc_scc_bg" target="mpr_scc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r5t" value="<<uses>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r5">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.7;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="svc_sc_bg" target="mpr_sc_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r6t" value="<<uses>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r6">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Mapper --> BaseMapper (extends/inherits) -->
+        <mxCell id="r7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=block;endFill=0;" edge="1" parent="1" source="mpr_scc_bg" target="mpr_base_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r7t" value="<<extends>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r7">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="-8" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=block;endFill=0;" edge="1" parent="1" source="mpr_sc_bg" target="mpr_base_bg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="r8t" value="<<extends>>" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r8">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint x="8" y="-6" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- Mapper --> Entity (dependency: maps to) -->
+        <mxCell id="r9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="mpr_scc_bg" target="ent_scc_bg">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="1120" y="80"/><mxPoint x="1120" y="123"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r9t" value="<<maps&gt;&gt;&#xa;BaseMapper&lt;StudentClass&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r9">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <mxCell id="r10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#888;strokeWidth=1;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1" source="mpr_sc_bg" target="ent_sc_bg">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="1120" y="200"/><mxPoint x="1120" y="273"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r10t" value="<<maps&gt;&gt;&#xa;BaseMapper&lt;Student&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=8;fontColor=#888;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="r10">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry"><mxPoint y="-8" as="offset"/></mxGeometry>
+        </mxCell>
+
+        <!-- ============================================================ -->
+        <!-- LEGEND -->
+        <!-- ============================================================ -->
+        <mxCell id="lg_bg" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#999;fillColor=none;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="250" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_t" value="图例" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="524" width="100" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c1" value="" style="rounded=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="55" y="555" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c1t" value="Controller" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="86" y="552" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c2" value="" style="rounded=0;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="155" y="555" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c2t" value="Service (接口)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="186" y="552" width="95" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c3" value="" style="rounded=0;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="55" y="577" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c3t" value="Service (实现)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="86" y="574" width="95" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c4" value="" style="rounded=0;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="155" y="577" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c4t" value="Mapper" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="186" y="574" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c5" value="" style="rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="55" y="599" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c5t" value="Entity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="86" y="596" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c6" value="" style="rounded=0;fillColor=#fff;strokeColor=#999;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="599" width="24" height="14" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_c6t" value="DTO / VO" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="186" y="596" width="80" height="20" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_r1" style="endArrow=block;endFill=0;strokeColor=#888;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="635" as="sourcePoint"/>
+            <mxPoint x="100" y="635" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_r1t" value="<<extends>>" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#888;" vertex="1" parent="1">
+          <mxGeometry x="108" y="627" width="70" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_r2" style="endArrow=block;endFill=0;dashed=1;strokeColor=#888;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="660" as="sourcePoint"/>
+            <mxPoint x="100" y="660" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_r2t" value="<<implements>>" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#888;" vertex="1" parent="1">
+          <mxGeometry x="108" y="652" width="85" height="16" as="geometry"/>
+        </mxCell>
+        <mxCell id="lg_r3" style="endArrow=open;endFill=0;dashed=1;strokeColor=#888;strokeWidth=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="55" y="685" as="sourcePoint"/>
+            <mxPoint x="100" y="685" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lg_r3t" value="<<uses>> (依赖)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=9;fontColor=#888;" vertex="1" parent="1">
+          <mxGeometry x="108" y="677" width="85" height="16" as="geometry"/>
+        </mxCell>
+
+        <!-- Architecture note -->
+        <mxCell id="arch_note" value="Student Management Subsystem - UML Class Diagram&#xa;Layered Architecture: Controller -> Service -> Mapper -> Entity" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontColor=#999;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="720" width="450" height="40" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

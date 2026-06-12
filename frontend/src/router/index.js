@@ -24,7 +24,11 @@ const routes = [
   { path: '/exam/rooms', name: 'ExamRoomManage', component: () => import('../views/exam/ExamRoomManage.vue') },
   { path: '/exam/list', name: 'ExamManage', component: () => import('../views/exam/ExamManage.vue') },
   { path: '/exam/detail/:id', name: 'ExamDetail', component: () => import('../views/exam/ExamDetail.vue') },
-  { path: '/exam/grading/:examId', name: 'ExamGrading', component: () => import('../views/exam/ExamGrading.vue') }
+  { path: '/exam/grading/:examId', name: 'ExamGrading', component: () => import('../views/exam/ExamGrading.vue') },
+  // 学生管理
+  { path: '/students/classes', name: 'StudentClassManage', component: () => import('../views/student/StudentClassManage.vue') },
+  { path: '/students', name: 'StudentManage', component: () => import('../views/student/StudentManage.vue') },
+  { path: '/students/analysis/:studentNo', name: 'StudentAnalysis', component: () => import('../views/student/StudentAnalysis.vue') }
 ]
 
 const router = createRouter({
